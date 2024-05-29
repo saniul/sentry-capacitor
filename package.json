@@ -95,7 +95,7 @@
     "dist/",
     "ios/",
     "android/",
-    "SentryCapacitor.podspec",
+    "SaniulSentryCapacitor.podspec",
     "scripts/check-siblings.js"
   ],
   "capacitor": {
