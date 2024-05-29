@@ -5,7 +5,7 @@ const { env } = require('process');
 const updateArgument = '--update-sentry-capacitor';
 
 // Filters all Sentry packages but Capacitor, CLI and Wizard.
-const jsonFilter = /\s*\"\@sentry\/(?!capacitor|wizard|cli|typescript|electron)(?<packageName>[a-zA-Z]+)\"\:\s*\"(?<version>.+)\"/;
+const jsonFilter = /\s*\"\@sentry\/(?!capacitor|wizard|cli|typescript|electron|vite-plugin)(?<packageName>[a-zA-Z]+)\"\:\s*\"(?<version>.+)\"/;
 
 /**
  * If user requested to ignore the post-install
@@ -61,7 +61,7 @@ function GetRequiredSiblingVersion() {
  */
 function ValidateSentryPackageParameters(packages) {
   let errorMessages = [];
-  var packageFilter = /.*(capacitor|cli|wizard|typescript)/;
+  var packageFilter = /.*(capacitor|cli|wizard|typescript|vite-plugin)/;
   for (const argPackage of packages) {
     if (argPackage.startsWith('@sentry') && !packageFilter.test(argPackage)) {
       const installedVersion = String(argPackage);
